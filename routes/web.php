@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/google/redirect', [GoogleLoginController::class,'redirect'])->name('google.redirect');
+Route::get('/google/callback', [GoogleLoginController::class,'callback'])->name('google.callback');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
