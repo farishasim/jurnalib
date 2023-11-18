@@ -16,9 +16,9 @@ defineProps({
     <Head title="Welcome" />
 
     <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-cyan-500 selection:text-white"
+        class="sm:flex justify-center items-start min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-cyan-500 selection:text-white"
     >
-        <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-end">
+        <div v-if="canLogin" class="fixed top-0 right-0 p-6 text-end">
             <Link
                 v-if="$page.props.auth.user"
                 :href="route('dashboard')"
@@ -42,7 +42,7 @@ defineProps({
             </template>
         </div>
 
-        <div class="w-3/4 max-w-4xl p-6 lg:p-8">
+        <div class="w-3/4 max-w-4xl p-6 lg:p-8 mt-32">
             <div class="flex justify-center">
                 <svg
                     viewBox="0 0 62 65"
@@ -81,13 +81,14 @@ defineProps({
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="flex justify-center mt-16 px-6 sm:items-center sm:justify-between">
-                <div class="ms-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
-                    By Faris Hasim Syauqi
-                </div>
+        <div class="sm:fixed sm:bottom-0 sm:left-0 p-6 text-end">
+            <div class="ms-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
+                By Faris Hasim Syauqi
             </div>
         </div>
+
     </div>
 </template>
 
