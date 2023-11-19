@@ -3,11 +3,8 @@ import { Head, Link } from '@inertiajs/vue3';
 import SearchBar from '@/Components/SearchBar.vue'
 
 defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
+    journalList: {
+        type: Array,
     },
 });
 </script>
@@ -18,29 +15,6 @@ defineProps({
     <div
         class="sm:flex justify-center items-start min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-cyan-500 selection:text-white"
     >
-        <div v-if="canLogin" class="fixed top-0 right-0 p-6 text-end">
-            <Link
-                v-if="$page.props.auth.user"
-                :href="route('dashboard')"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-cyan-500"
-                >Dashboard</Link
-            >
-
-            <template v-else>
-                <a
-                    :href="route('google.redirect')"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-cyan-500"
-                    >Log in</a
-                >
-
-                <Link
-                    v-if="canRegister"
-                    :href="route('register')"
-                    class="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-cyan-500"
-                    >Register</Link
-                >
-            </template>
-        </div>
 
         <div class="w-3/4 max-w-4xl p-6 lg:p-8 mt-32">
             <div class="flex justify-center">
@@ -77,7 +51,7 @@ defineProps({
                         </svg>
                     </div>
                     <div class="w-full">
-                        <SearchBar @search="query => console.log('Search query:', query)" />
+                        <SearchBar @search="query => console.log('Search query:', journalList)" />
                     </div>
                 </div>
             </div>
