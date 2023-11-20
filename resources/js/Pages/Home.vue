@@ -22,21 +22,23 @@ defineProps({
 
         <div class="w-3/4 max-w-4xl p-6 lg:p-8 my-8">
             <div class="grid place-items-center text-center">
-                <div class="text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-400">
+                <div class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
                     <h1 class="font-serif text-5xl font-extrabold">J U R N A L I B</h1>
                     <p class="font-serif text-xl">Journal Ranking Library</p>
                 </div>
             </div>
 
-            <div class="my-16">
+            <div class="my-12">
                 <SearchBar 
-                    @change="text => {query = text; console.log(journalList)}" 
+                    @change="text => {query = text; console.log(query)}" 
                     @search="query => console.log('Search query:', journalList)" />
             </div>
 
-            <div class="grid grid-cols-1">
+            <div v-if="query !== ''" class="grid grid-cols-1">
                 <JournalCard
-                    v-for="journal in journalList"
+                    v-for="journal in journalList.filter((e, i) => {
+                        return e[0].toLowerCase().includes(query.toLowerCase())
+                    })"
                     :title="journal[0]"
                     :scimago="journal[1]"
                     :scopus="journal[2]"

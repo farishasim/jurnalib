@@ -23,7 +23,7 @@
                     v-model="searchQuery" 
                     @input="handleChange"
                     type="text" 
-                    placeholder="Enter your search..." 
+                    placeholder="Enter journal name..." 
                     class="w-full py-2 px-4 border-none focus:ring-0 rounded" />
                 <!-- <button 
                     @click="handleSearch" 
