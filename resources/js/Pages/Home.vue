@@ -38,7 +38,7 @@ defineProps({
                 <JournalCard
                     v-for="journal in journalList.filter((e, i) => {
                         let words = e[0].toLowerCase().split(' ');
-                        return words.find((word,i) => word.startsWith(query)) != undefined
+                        return words.find((word,i) => word.startsWith(query.toLowerCase())) != undefined
                     })"
                     :title="journal[0]"
                     :scimago="journal[1]"
