@@ -52,7 +52,7 @@ defineProps({
 
         <div class="sm:fixed sm:bottom-0 sm:left-0 p-6 text-end">
             <div class="ms-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
-                By Faris Hasim Syauqi
+                By Irfan Hasim & Faris Hasim
             </div>
         </div>
 
