@@ -9,6 +9,7 @@ defineProps({
     },
     query: {
         type: String,
+        default: '',
     },
 });
 </script>
