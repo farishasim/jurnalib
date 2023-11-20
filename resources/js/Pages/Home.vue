@@ -6,6 +6,9 @@ defineProps({
     journalList: {
         type: Array,
     },
+    query: {
+        type: String,
+    },
 });
 </script>
 
@@ -51,7 +54,9 @@ defineProps({
                         </svg>
                     </div>
                     <div class="w-full">
-                        <SearchBar @search="query => console.log('Search query:', journalList)" />
+                        <SearchBar 
+                            @change="text => query = text" 
+                            @search="query => console.log('Search query:', journalList)" />
                     </div>
                 </div>
             </div>

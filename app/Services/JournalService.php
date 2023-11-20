@@ -9,7 +9,7 @@ use Google_Service_Sheets;
 
 use Exception;
 
-class GoogleSheetsService
+class JournalService
 {
     private function getValues($spreadsheetId, $range)
     {
@@ -20,8 +20,11 @@ class GoogleSheetsService
             $client->setAuthConfig(config('services.google')["sheets_credential"]);
 
             $service = new Google_Service_Sheets($client);
-            $result = $service->spreadsheets_values->get($spreadsheetId, $range, ['majorDimension'=>'COLUMNS']);
-
+            $params = [
+                // 'majorDimension'=>'COLUMNS'
+            ];
+            $result = $service->spreadsheets_values->get($spreadsheetId, $range, $params);
+            
             return $result->getValues();
         }
         catch(Exception $e) 
@@ -32,7 +35,7 @@ class GoogleSheetsService
 
     public function getAllJournalName() 
     {
-        return $this->getValues('1t0D7lgbyZt-NnZ3ZxTxHIwuc6WVnFAsMAXpo7al1Deg', 'RANKING LIST!D7:D51');
+        return $this->getValues('1t0D7lgbyZt-NnZ3ZxTxHIwuc6WVnFAsMAXpo7al1Deg', 'RANKING LIST!D7:I51');
     }
 }
 

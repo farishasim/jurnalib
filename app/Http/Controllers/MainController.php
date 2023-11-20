@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\GoogleSheetsService;
+use App\Services\JournalService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -13,10 +13,10 @@ class MainController extends Controller
      */
     public function index()
     {
-        $sheet = new GoogleSheetsService();
+        $journals = new JournalService();
         // Main Page
         return Inertia::render("Home", [
-            "journalList" => $sheet->getAllJournalName(),
+            "journalList" => $journals->getAllJournalName(),
         ]);
     }
 }
