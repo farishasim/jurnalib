@@ -37,7 +37,8 @@ defineProps({
             <div v-if="query !== ''" class="grid grid-cols-1">
                 <JournalCard
                     v-for="journal in journalList.filter((e, i) => {
-                        return e[0].toLowerCase().includes(query.toLowerCase())
+                        let words = e[0].toLowerCase().split(' ');
+                        return words.find((word,i) => word.startsWith(query)) != undefined
                     })"
                     :title="journal[0]"
                     :scimago="journal[1]"

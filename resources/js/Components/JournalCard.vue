@@ -1,4 +1,5 @@
 <script setup>
+import Badge from '@/Components/Badge.vue';
 
 defineProps({
     title: {
@@ -32,15 +33,15 @@ defineProps({
         </div>
         <div class="w-1/6 grid place-items-center">
             <h3>Scimago:</h3>
-            <div class="flex mt-2 w-7/12 justify-center items-center aspect-square rounded-md bg-gradient-to-br from-blue-500 to-cyan-400">
-                <p class="text-white text-xl font-extrabold">{{ scimago }}</p>
-            </div>
+            <Badge v-if="scimago === 'Q1'" class="bg-gradient-to-br from-blue-500 to-red-400" :content="scimago" />
+            <Badge v-else-if="scimago === 'Q2'" class="bg-gradient-to-br from-amber-500 to-yellow-300" :content="scimago" />
+            <Badge v-else-if="scimago === 'Q3'" class="bg-gradient-to-br from-slate-500 to-slate-300" :content="scimago" />
+            <Badge v-else-if="scimago === 'Q4'" class="bg-gradient-to-br from-yellow-900 to-amber-600" :content="scimago" />
+            <Badge v-else class="bg-gradient-to-br from-black to-gray-500" :content="scimago" />
         </div>
         <div class="w-1/6 grid place-items-center">
             <h3>Scopus:</h3>
-            <div class="flex mt-2 w-7/12 justify-center items-center aspect-square rounded-md bg-gradient-to-br from-blue-500 to-cyan-400">
-                <p class="text-white text-xl font-extrabold">{{ scopus }}</p>
-            </div>
+            <Badge class="bg-gradient-to-br from-emerald-500 to-cyan-500" :content="scopus" />
         </div>
     </div>
 </template>
