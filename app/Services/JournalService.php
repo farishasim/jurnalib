@@ -17,7 +17,7 @@ class JournalService
             $client = new Client();
             $client->useApplicationDefaultCredentials();
             $client->addScope(Google_Service_Sheets::SPREADSHEETS_READONLY);
-            $client->setAuthConfig(config('services.google')["sheets_credential"]);
+            $client->setAuthConfig(config('services.google')['sheets_credential']);
 
             $service = new Google_Service_Sheets($client);
             $params = [
@@ -35,7 +35,10 @@ class JournalService
 
     public function getAllJournalName() 
     {
-        return $this->getValues('1t0D7lgbyZt-NnZ3ZxTxHIwuc6WVnFAsMAXpo7al1Deg', 'RANKING LIST!D7:I51');
+        return $this->getValues(
+            config('services.google')['spreadsheet_id'], 
+            config('services.google')['sheets_range']
+        );
     }
 }
 

@@ -32,9 +32,14 @@ return [
     ],
 
     'google' => [
+        # OAuth Settings
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URL'),
-        'sheets_credential' => env('GOOGLE_SHEETS_CREDENTIAL')
+        
+        # Spreadsheet Settings
+        'sheets_credential' => env('GOOGLE_SHEETS_CREDENTIAL'),
+        'spreadsheet_id' => env('GOOGLE_SPREADSHEET_ID'),
+        'sheets_range' => env('GOOGLE_SHEETS_RANGE'),
     ],
 ];
