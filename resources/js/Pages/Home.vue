@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 import SearchBar from '@/Components/SearchBar.vue'
 import JournalCard from '@/Components/JournalCard.vue';
 
@@ -31,13 +31,15 @@ defineProps({
 
             <div class="my-12">
                 <SearchBar 
-                    @change="text => {query = text; console.log(query)}" 
-                    @search="query => console.log('Search query:', journalList)" />
+                    @search="text => {query = text; console.log(query)}" />
             </div>
 
             <div v-if="query !== ''" class="grid grid-cols-1">
                 <JournalCard
                     v-for="journal in journalList.filter((e, i) => {
+                        if (query.includes(' ')) {
+                            return e[0].toLowerCase().includes(query.toLowerCase())
+                        }
                         let words = e[0].toLowerCase().split(' ');
                         return words.find((word,i) => word.startsWith(query.toLowerCase())) != undefined
                     })"

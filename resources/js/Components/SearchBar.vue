@@ -41,12 +41,12 @@ export default {
         };
     },
     methods: {
-        handleSearch() {
-            // Emit the searchQuery as an event
-            this.$emit("search", this.searchQuery);
-        },
+        // handleSearch() {
+        //     // Emit the searchQuery as an event
+        //     this.$emit("search", this.searchQuery);
+        // },
         handleChange() {
-            this.$emit("change", this.searchQuery);
+            this.$emit("search", this.searchQuery);
         }
     },
 };
