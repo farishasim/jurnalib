@@ -7,14 +7,13 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        node-version: [10.2]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
     - uses: actions/checkout@v3
-    - name: Copy files to production directory
-      run: cp -r * /home/ubuntu/jurnalib
+    - name: install Laravel package
+      run: docker run --rm --pull=always -v "$(pwd)":/opt -w /opt laravelsail/php82-composer:latest composer install --ignore-platform-reqs
+    - name: Install Node Packages
+      run: ./vendor/bin/sail npm install
     - name: Build frontend
       working-directory: /home/ubuntu/jurnalib
       run: ./vendor/bin/sail npm run build
