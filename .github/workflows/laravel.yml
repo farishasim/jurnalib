@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Copy files to production directory
-      run: cp * /home/ubuntu/jurnalib
+      run: cp -r * /home/ubuntu/jurnalib
     - name: Build frontend
       working-directory: /home/ubuntu/jurnalib
       run: /vendor/bin/sail npm run build
