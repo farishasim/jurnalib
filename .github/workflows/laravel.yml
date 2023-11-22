@@ -4,18 +4,26 @@ on:
   push:
     branches: [ "main" ]
 
+env: 
+  APP_PATH: /home/ubuntu/jurnalib
+
 jobs:
   build:
     runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
-    - name: install Laravel package
+    - name: Copy to deployment path
+      run: cp -r * . $APP_PATH
+    - name: Install Laravel package
+      working-directory: $APP_PATH
       run: docker run --rm --pull=always -v "$(pwd)":/opt -w /opt laravelsail/php82-composer:latest composer install --ignore-platform-reqs
     - name: Run Container
+      working-directory: $APP_PATH
       run: ./vendor/bin/sail up -d
     - name: Install Node Packages
+      working-directory: $APP_PATH
       run: ./vendor/bin/sail npm install
     - name: Build frontend
-      working-directory: /home/ubuntu/jurnalib
+      working-directory: $APP_PATH
       run: ./vendor/bin/sail npm run build
