@@ -13,7 +13,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - uses: actions/checkout@v3
-      with:
-        path: /home/ubuntu/jurnalib
+    - name: Copy files to production directory
+      run: cp * /home/ubuntu/jurnalib
     - name: Build frontend
-      run: sail npm run build
+      working-directory: /home/ubuntu/jurnalib
+      run: /vendor/bin/sail npm run build
