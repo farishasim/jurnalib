@@ -18,4 +18,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm run build
+    - name: Build frontend
+      run: sail npm run build
