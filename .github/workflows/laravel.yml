@@ -12,6 +12,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: install Laravel package
       run: docker run --rm --pull=always -v "$(pwd)":/opt -w /opt laravelsail/php82-composer:latest composer install --ignore-platform-reqs
+    - name: Run Container
+      run: ./vendor/bin/sail up -d
     - name: Install Node Packages
       run: ./vendor/bin/sail npm install
     - name: Build frontend
