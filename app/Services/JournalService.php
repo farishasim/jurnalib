@@ -2,40 +2,20 @@
 
 namespace App\Services;
 
-use Google\Client;
-use Google\Service\Drive;
-use Google\Service\Sheets;
-use Google_Service_Sheets;
-
-use Exception;
+use App\Services\GoogleSheetsService;
 
 class JournalService
 {
-    private function getValues($spreadsheetId, $range)
+    private $sheetService;
+    
+    public function __construct()
     {
-        try{
-            $client = new Client();
-            $client->useApplicationDefaultCredentials();
-            $client->addScope(Google_Service_Sheets::SPREADSHEETS_READONLY);
-            $client->setAuthConfig(config('services.google')['sheets_credential']);
-
-            $service = new Google_Service_Sheets($client);
-            $params = [
-                // 'majorDimension'=>'COLUMNS'
-            ];
-            $result = $service->spreadsheets_values->get($spreadsheetId, $range, $params);
-            
-            return $result->getValues();
-        }
-        catch(Exception $e) 
-        {
-            echo 'Message: ' .$e->getMessage();
-        }
+        $this->sheetService = new GoogleSheetsService();
     }
 
     public function getAllJournalName() 
     {
-        return $this->getValues(
+        return $this->sheetService->getValues(
             config('services.google')['spreadsheet_id'], 
             config('services.google')['sheets_range']
         );
