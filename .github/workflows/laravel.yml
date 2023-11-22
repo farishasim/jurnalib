@@ -14,16 +14,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Copy to deployment path
-      run: cp -r * . $APP_PATH
+      run: cp -r * $APP_PATH
     - name: Install Laravel package
-      working-directory: $APP_PATH
+      working-directory: ${{env.APP_PATH}}
       run: docker run --rm --pull=always -v "$(pwd)":/opt -w /opt laravelsail/php82-composer:latest composer install --ignore-platform-reqs
     - name: Run Container
-      working-directory: $APP_PATH
+      working-directory: ${{env.APP_PATH}}
       run: ./vendor/bin/sail up -d
     - name: Install Node Packages
-      working-directory: $APP_PATH
+      working-directory: ${{env.APP_PATH}}
       run: ./vendor/bin/sail npm install
     - name: Build frontend
-      working-directory: $APP_PATH
+      working-directory: ${{env.APP_PATH}}
       run: ./vendor/bin/sail npm run build
