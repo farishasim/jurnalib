@@ -68,11 +68,10 @@ class GoogleDriveService
             foreach ($rawjournals as $journal) {
                 // print($journal);
                 $journal = explode(";", $journal);
-                print($journal[2]);
+                // print($journal[2]);
                 array_push($journals, [
                     $journal[2],
                     $journal[6],
-                    'XXX',
                     $journal[17],
                     $journal[15],
                 ]);

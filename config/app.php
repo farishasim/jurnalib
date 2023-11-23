@@ -185,4 +185,7 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'cron' => [
+        'download_drive' => env('SCHEDULE_DOWNLOAD_DRIVE')
+    ]
 ];

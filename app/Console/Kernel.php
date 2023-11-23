@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command("app:download-drive")->cron(config('app.cron')['download_drive']);
     }
 
     /**

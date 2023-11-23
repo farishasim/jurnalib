@@ -42,12 +42,11 @@ defineProps({
                         }
                         let words = e[0].toLowerCase().split(' ');
                         return words.find((word,i) => word.startsWith(query.toLowerCase())) != undefined
-                    })"
+                    }).slice(0,100)"
                     :title="journal[0]"
                     :scimago="journal[1]"
-                    :scopus="journal[2]"
-                    :country="journal[5]"
-                    :publisher="(journal[3] !== '#N/A') && (journal[3] !== '') ? journal[3] : journal[4] "
+                    :publisher="journal[2]"
+                    :country="journal[3]"
                 />
             </div>
 
