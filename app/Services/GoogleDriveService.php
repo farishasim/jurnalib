@@ -5,6 +5,7 @@ namespace App\Services;
 use Exception;
 use Google\Client;
 use Google\Service\Drive;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class GoogleDriveService
@@ -17,7 +18,7 @@ class GoogleDriveService
             $client = new Client();
             $client->useApplicationDefaultCredentials();
             $client->addScope(Drive::DRIVE);
-            $client->setAuthConfig(config('services.google')['sheets_credential']);
+            $client->setAuthConfig(config('services.google')['service_account']);
 
             $this->service = new Drive($client);
         }
@@ -50,12 +51,34 @@ class GoogleDriveService
             
             # download scimago file, assume only one file in folder
             $file = $files[0][0];
-            print("downloading file $file->name ...");
+            print("downloading file $file->name ...\n");
             $response = $this->service->files->get($file->id, array(
                 'alt' => 'media'
             ));
             $content = $response->getBody()->getContents();
             Storage::disk('local')->put('scimago.csv', $content);
+            print("file downloaded and saved to file storage\n");
+
+            # Serialize to array of journals
+            print("put journals to cache\n");
+            $content = str_replace('"','', $content);
+            $rawjournals = array_slice(explode("\n", $content), 1);
+            array_pop($rawjournals);
+            $journals = [];
+            foreach ($rawjournals as $journal) {
+                // print($journal);
+                $journal = explode(";", $journal);
+                print($journal[2]);
+                array_push($journals, [
+                    $journal[2],
+                    $journal[6],
+                    'XXX',
+                    $journal[17],
+                    $journal[15],
+                ]);
+            }
+            print('found '. count($journals) . " journals\n");
+            Cache::store('file')->put('journals', $journals);
 
             return $files;
 

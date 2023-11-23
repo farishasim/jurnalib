@@ -16,7 +16,7 @@ class GoogleSheetsService
             $client = new Client();
             $client->useApplicationDefaultCredentials();
             $client->addScope(Google_Service_Sheets::SPREADSHEETS_READONLY);
-            $client->setAuthConfig(config('services.google')['sheets_credential']);
+            $client->setAuthConfig(config('services.google')['service_account']);
 
             $this->service = new Google_Service_Sheets($client);
         }

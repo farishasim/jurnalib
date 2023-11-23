@@ -37,11 +37,11 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URL'),
         
+        # Service Account Settings
+        'service_account' => env('GOOGLE_SERVICE_ACCOUNT'),
         # Spreadsheet Settings
-        'sheets_credential' => env('GOOGLE_SHEETS_CREDENTIAL'),
         'spreadsheet_id' => env('GOOGLE_SPREADSHEET_ID'),
         'sheets_range' => env('GOOGLE_SHEETS_RANGE'),
-
         # Drive Settings
         'folder_id' => env('GOOGLE_FOLDER_ID'),
     ],
