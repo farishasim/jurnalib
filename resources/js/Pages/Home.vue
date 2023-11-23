@@ -34,7 +34,7 @@ defineProps({
                     @search="text => {query = text; console.log(query)}" />
             </div>
 
-            <div v-if="query !== ''" class="grid grid-cols-1">
+            <div v-if="query !== '' && journalList !== null" class="grid grid-cols-1">
                 <JournalCard
                     v-for="journal in journalList.filter((e, i) => {
                         if (query.includes(' ')) {
