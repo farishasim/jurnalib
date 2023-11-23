@@ -41,5 +41,8 @@ return [
         'sheets_credential' => env('GOOGLE_SHEETS_CREDENTIAL'),
         'spreadsheet_id' => env('GOOGLE_SPREADSHEET_ID'),
         'sheets_range' => env('GOOGLE_SHEETS_RANGE'),
+
+        # Drive Settings
+        'folder_id' => env('GOOGLE_FOLDER_ID'),
     ],
 ];

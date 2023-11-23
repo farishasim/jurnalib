@@ -4,8 +4,6 @@ namespace App\Services;
 
 use Exception;
 use Google\Client;
-use Google\Service\Drive;
-use Google\Service\Sheets;
 use Google_Service_Sheets;
 
 class GoogleSheetsService
