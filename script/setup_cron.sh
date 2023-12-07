@@ -1,0 +1,1 @@
+docker exec -it jurnalib-laravel.test-1 bash ./script/setup_cron_docker.sh
