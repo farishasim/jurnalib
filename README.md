@@ -1,4 +1,4 @@
-## About Jurnalib
+# About Jurnalib
 
 Jurnalib is a web application featuring fast searching of journal rank information by [Scimago](https://www.scimagojr.com/).
 
