@@ -4,11 +4,14 @@ Jurnalib is a web application featuring fast searching of journal rank informati
 
 ## Usage
 
-You can go to here and start searching, or deploy your own self-managed app.
+You can go to [here]() and start searching, or deploy your own self-managed app.
 Instruction for deployment can be seen [here](#deployment)
 
 ## Architecture
 
+System architecture of Jurnalib is detailed in diagram below.
+
+![system architecture](./docs/arch.png)
 
 ## Deployment
 
@@ -41,7 +44,7 @@ Build frontend assets:
 
 For the server to work properly, you need to configure environment. 
 - Copy `.env.example` to `.env`.
-- Setup google service account and set the path to credential in this environment varible:
+- Setup [Google Service Account](https://cloud.google.com/iam/docs/service-account-overview) and set the path to credential in this environment varible:
 ```
 GOOGLE_SERVICE_ACCOUNT=
 ```
@@ -51,7 +54,7 @@ GOOGLE_SERVICE_ACCOUNT=
 ```
 GOOGLE_FOLDER_ID=
 ```
-- Setup cron for periodic tasks:
+- Setup cron for periodic tasks with this script:
 ```
 ./script/setup_cron.sh
 ``` 
@@ -59,3 +62,4 @@ GOOGLE_FOLDER_ID=
 ```
 SCHEDULE_DOWNLOAD_DRIVE=
 ```
+
