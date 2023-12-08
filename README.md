@@ -44,7 +44,7 @@ Build frontend assets:
 
 For the server to work properly, you need to configure environment. 
 - Copy `.env.example` to `.env`.
-- Setup [Google Service Account](https://cloud.google.com/iam/docs/service-account-overview) and set the path to credential in this environment varible:
+- Setup [Google Service Account](https://cloud.google.com/iam/docs/service-account-overview) and set the path to credential in this environment variable:
 ```
 GOOGLE_SERVICE_ACCOUNT=
 ```
