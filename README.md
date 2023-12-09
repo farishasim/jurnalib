@@ -4,7 +4,7 @@ Jurnalib is a web application featuring fast searching of journal rank informati
 
 ## Usage
 
-You can go to [here]() and start searching, or deploy your own self-managed app.
+You can go to [here](https://jurnalib.hasim.cloud) and start searching, or deploy your own self-managed app.
 Instruction for deployment can be seen [here](#deployment)
 
 ## Architecture
