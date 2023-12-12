@@ -20,10 +20,16 @@ defineProps({
     </Head>
 
     <div
-        class="sm:flex justify-center items-start min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-cyan-500 selection:text-white"
+        class="flex justify-center items-start min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-cyan-500 selection:text-white"
     >
 
-        <div class="w-3/4 max-w-4xl p-6 lg:p-8 my-8">
+        <div class="fixed bottom-0 sm:left-0 p-6 text-end z-10">
+            <div class="ms-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
+                By Irfan & Faris
+            </div>
+        </div>
+
+        <div class="w-3/4 max-w-4xl p-6 lg:p-8 my-8 z-20">
             <div class="grid place-items-center text-center">
                 <div class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
                     <h1 class="font-serif text-5xl font-extrabold">J U R N A L I B</h1>
@@ -52,12 +58,6 @@ defineProps({
                 />
             </div>
 
-        </div>
-
-        <div class="sm:fixed sm:bottom-0 sm:left-0 p-6 text-end">
-            <div class="ms-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
-                By Irfan & Faris
-            </div>
         </div>
 
     </div>
