@@ -29,21 +29,21 @@ defineProps({
             </div>
         </div>
 
-        <div class="w-3/4 max-w-4xl p-6 lg:p-8 my-8 z-20">
+        <div class="sm:w-3/4 max-w-4xl p-6 lg:p-8 my-6 lg:my-8 z-20">
             <div class="grid place-items-center text-center">
                 <div class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
-                    <h1 class="font-serif text-5xl font-extrabold">J U R N A L I B</h1>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-extrabold">J U R N A L I B</h1>
                     <p class="font-serif text-xl">Journal Ranking Library</p>
                 </div>
             </div>
 
-            <div class="my-12">
+            <div class="mt-12 mb-6 sm:my-12">
                 <SearchBar 
                     @search="text => {query = text; console.log(query)}" />
             </div>
 
             <div v-if="query !== '' && journalList !== null" class="grid grid-cols-1">
-                <JournalCard
+                <JournalCard class="mt-4 p-4"
                     v-for="journal in journalList.filter((e, i) => {
                         if (query.includes(' ')) {
                             return e[0].toLowerCase().includes(query.toLowerCase())

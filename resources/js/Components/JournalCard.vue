@@ -25,10 +25,10 @@ defineProps({
 </script>
 
 <template>
-    <div class="mt-4 p-4 flex bg-white rounded-lg shadow-2xl shadow-gray-500/20">
+    <div class="flex bg-white rounded-lg shadow-2xl shadow-gray-500/20">
         <div class="w-[90%]">
-            <h2 class="mb-3 text-xl font-medium">{{ title }}</h2>
-            <p class=" italic">{{ publisher }}</p>
+            <h2 class="mb-3 text-lg sm:text-xl font-medium">{{ title }}</h2>
+            <p class="italic">{{ publisher }}</p>
             <p>{{ country }}</p>
         </div>
         <div class=" w-20 md:w-[15%] grid place-items-center">
