@@ -23,7 +23,7 @@ defineProps({
         class="flex justify-center items-start min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-cyan-500 selection:text-white"
     >
 
-        <div class="sm:w-3/4 w-full p-6 lg:p-8 my-6 lg:my-8 z-20">
+        <div class="w-full sm:w-3/4 sm:max-w-4xl p-6 lg:p-8 my-6 lg:my-8 z-20">
             <div class="grid place-items-center text-center">
                 <div class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
                     <h1 class="font-serif text-4xl sm:text-5xl font-extrabold">J U R N A L I B</h1>
